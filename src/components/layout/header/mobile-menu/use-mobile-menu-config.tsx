@@ -42,8 +42,8 @@ const useMobileMenuConfig = (client?: RootStore['client']) => {
         [
             {
                 as: 'a',
-                href: 'https://mozaictradinghub.com',
-                label: localize('MOZAIC TRADING HUB'),
+                href: 'https://statefx.com',
+                label: localize('State FX Trading Hub'),
                 LeftComponent: BrandDerivLogoCoralIcon,
             },
             {

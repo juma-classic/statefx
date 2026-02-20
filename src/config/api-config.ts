@@ -1,5 +1,5 @@
 /**
- * Centralized API Configuration for MOZAIC TRADING HUB
+ * Centralized API Configuration for State FX Trading Hub
  * 
  * This file manages all Deriv API credentials and endpoints.
  * Update these values with your own app_id from https://api.deriv.com/app-registration

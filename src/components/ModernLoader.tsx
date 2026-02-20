@@ -214,7 +214,7 @@ const ModernLoader: React.FC<ModernLoaderProps> = ({ onFinish }) => {
 
             {/* Main content */}
             <div className='modern-loader__content'>
-                {/* Enhanced Logo/Brand with actual MOZAIC TRADING HUB logo */}
+                {/* Enhanced Logo/Brand with actual State FX Trading Hub logo */}
                 <div className='modern-loader__logo'>
                     <div
                         className='modern-loader__logo-container'
@@ -265,11 +265,11 @@ const ModernLoader: React.FC<ModernLoaderProps> = ({ onFinish }) => {
                             </svg>
                         </div>
 
-                        {/* Actual MOZAIC TRADING HUB Logo */}
+                        {/* Actual State FX Trading Hub Logo */}
                         <div className='modern-loader__logo-image-container'>
                             <img
                                 src='/tradersdenlogo.png'
-                                alt='MOZAIC TRADING HUB Logo'
+                                alt='State FX Trading Hub Logo'
                                 className='modern-loader__logo-image'
                                 style={{
                                     filter: `brightness(${1 + logoGlow * 0.3}) contrast(${1 + logoGlow * 0.2}) drop-shadow(0 0 ${5 + logoGlow * 15}px rgba(255, 255, 255, ${0.3 + logoGlow * 0.4}))`,

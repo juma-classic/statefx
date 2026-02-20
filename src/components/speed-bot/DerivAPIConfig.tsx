@@ -9,7 +9,7 @@ interface DerivAPIConfigProps {
 
 export const DerivAPIConfig: React.FC<DerivAPIConfigProps> = ({ onConnectionChange, isConnected }) => {
     const [apiToken, setApiToken] = useState('');
-    const [appId, setAppId] = useState(1089);
+    const [appId, setAppId] = useState(68794);
     const [isDemo, setIsDemo] = useState(true);
 
     return (

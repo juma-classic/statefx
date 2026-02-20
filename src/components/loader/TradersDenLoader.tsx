@@ -15,7 +15,7 @@ export const TradersDenLoader: React.FC<TradersDenLoaderProps> = ({ onLoadComple
         'Initializing Quantum Core...',
         'Synchronizing Market Algorithms...',
         'Calibrating Trading Mechanisms...',
-        'Access Granted. Welcome to MOZAIC TRADING HUB.',
+        'Access Granted. Welcome to State FX Trading Hub.',
     ];
 
 
@@ -144,7 +144,7 @@ export const TradersDenLoader: React.FC<TradersDenLoaderProps> = ({ onLoadComple
                 {/* App Logo/Name */}
                 <div className='logo-section'>
                     <h1 className='logo-title'>
-                        <span className='logo-mozaic'>MOZAIC</span>
+                        <span className='logo-mozaic'>State FX</span>
                         <span className='logo-trading'>TRADING</span>
                         <span className='logo-hub'>HUB</span>
                     </h1>

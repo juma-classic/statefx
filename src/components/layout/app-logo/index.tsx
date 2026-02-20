@@ -8,12 +8,12 @@ export const AppLogo = () => {
     if (!isDesktop) return null;
     return (
         <a
-            href='https://www.mozaictradinghub.com/'
+            href='https://www.statefx.com/'
             target='_blank'
             rel='noopener noreferrer'
             className='app-header__logo traders-den-logo'
         >
-            <span className='traders-den-text'>MOZAIC</span>
+            <span className='traders-den-text'>State FX</span>
         </a>
     );
 };

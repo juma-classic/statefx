@@ -23,7 +23,7 @@ export const DerivAPIConnection: React.FC<DerivAPIConnectionProps> = ({ onConnec
 
         try {
             // Create WebSocket connection to Deriv API with your app ID
-            const ws = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=115423');
+            const ws = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=68794');
 
             // Set connection timeout
             const connectionTimeout = setTimeout(() => {
@@ -73,7 +73,7 @@ export const DerivAPIConnection: React.FC<DerivAPIConnectionProps> = ({ onConnec
                         setConnectionError('');
                         setWsConnection(ws);
                         setConnectionInfo({
-                            appId: '115423',
+                            appId: '68794',
                             endpoint: 'wss://ws.derivws.com/websockets/v3',
                             status: 'Connected',
                             mode: 'Public Market Data',
@@ -111,7 +111,7 @@ export const DerivAPIConnection: React.FC<DerivAPIConnectionProps> = ({ onConnec
                             setConnectionError('');
                             setWsConnection(ws);
                             setConnectionInfo({
-                                appId: '115423',
+                                appId: '68794',
                                 endpoint: 'wss://ws.derivws.com/websockets/v3',
                                 status: 'Connected',
                                 mode: 'Public Market Data',
@@ -224,7 +224,7 @@ export const DerivAPIConnection: React.FC<DerivAPIConnectionProps> = ({ onConnec
                             <h5>🔍 Connection Debug Info:</h5>
                             <div className='debug-item'>
                                 <span>Endpoint:</span>
-                                <span>wss://ws.derivws.com/websockets/v3?app_id=115423</span>
+                                <span>wss://ws.derivws.com/websockets/v3?app_id=68794</span>
                             </div>
                             <div className='debug-item'>
                                 <span>Status:</span>
@@ -248,7 +248,7 @@ export const DerivAPIConnection: React.FC<DerivAPIConnectionProps> = ({ onConnec
                             onClick={() => {
                                 // Test WebSocket connection directly
                                 console.log('🧪 Testing WebSocket connection...');
-                                const testWs = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=115423');
+                                const testWs = new WebSocket('wss://ws.derivws.com/websockets/v3?app_id=68794');
                                 testWs.onopen = () => {
                                     console.log('✅ Test connection successful');
                                     testWs.send(JSON.stringify({ ping: 1 }));
