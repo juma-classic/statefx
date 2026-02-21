@@ -36,27 +36,306 @@ import { DCircles } from '@/components/dcircles/DCircles';
 
 const DashboardIcon = () => (
     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <path d='M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z' fill='currentColor' />
-        <path d='M4 4h6v8H4V4zm10 0h6v4h-6V4zM4 15h6v4H4v-4zm10-3h6v8h-6v-8z' fill='currentColor' opacity='0.6' />
-        <circle cx='7' cy='8' r='1.5' fill='#ffd700' />
-        <circle cx='17' cy='6' r='1.5' fill='#ffd700' />
-        <circle cx='7' cy='17' r='1.5' fill='#ffd700' />
-        <circle cx='17' cy='15' r='1.5' fill='#ffd700' />
+        <defs>
+            {/* Glowing gradient for lightning - Orange to Yellow */}
+            <linearGradient id='lightning-glow' x1='0%' y1='0%' x2='100%' y2='100%'>
+                <stop offset='0%' stopColor='#fbbf24' stopOpacity='1' />
+                <stop offset='50%' stopColor='#f59e0b' stopOpacity='0.8' />
+                <stop offset='100%' stopColor='#ea580c' stopOpacity='0.6' />
+            </linearGradient>
+            
+            {/* Animated lightning effect */}
+            <animate 
+                attributeName='opacity' 
+                values='0.6;1;0.6' 
+                dur='2s' 
+                repeatCount='indefinite'
+            />
+        </defs>
+        
+        {/* Windows 10 style grid tiles - Orange/Yellow gradient */}
+        <rect x='3' y='3' width='8' height='8' rx='0.5' fill='#fbbf24' opacity='0.9' />
+        <rect x='13' y='3' width='8' height='8' rx='0.5' fill='#f59e0b' opacity='0.9' />
+        <rect x='3' y='13' width='8' height='8' rx='0.5' fill='#f59e0b' opacity='0.9' />
+        <rect x='13' y='13' width='8' height='8' rx='0.5' fill='#fbbf24' opacity='0.9' />
+        
+        {/* Lightning lines radiating from center */}
+        <g stroke='url(#lightning-glow)' strokeWidth='1.5' strokeLinecap='round' opacity='0.8'>
+            {/* Horizontal lightning */}
+            <path d='M12 12 L3 12' className='lightning-line'>
+                <animate attributeName='opacity' values='0.3;1;0.3' dur='1.5s' repeatCount='indefinite' />
+            </path>
+            <path d='M12 12 L21 12' className='lightning-line'>
+                <animate attributeName='opacity' values='0.3;1;0.3' dur='1.5s' begin='0.2s' repeatCount='indefinite' />
+            </path>
+            
+            {/* Vertical lightning */}
+            <path d='M12 12 L12 3' className='lightning-line'>
+                <animate attributeName='opacity' values='0.3;1;0.3' dur='1.5s' begin='0.4s' repeatCount='indefinite' />
+            </path>
+            <path d='M12 12 L12 21' className='lightning-line'>
+                <animate attributeName='opacity' values='0.3;1;0.3' dur='1.5s' begin='0.6s' repeatCount='indefinite' />
+            </path>
+            
+            {/* Diagonal lightning */}
+            <path d='M12 12 L5 5' className='lightning-line'>
+                <animate attributeName='opacity' values='0.3;1;0.3' dur='1.5s' begin='0.8s' repeatCount='indefinite' />
+            </path>
+            <path d='M12 12 L19 19' className='lightning-line'>
+                <animate attributeName='opacity' values='0.3;1;0.3' dur='1.5s' begin='1s' repeatCount='indefinite' />
+            </path>
+            <path d='M12 12 L19 5' className='lightning-line'>
+                <animate attributeName='opacity' values='0.3;1;0.3' dur='1.5s' begin='1.2s' repeatCount='indefinite' />
+            </path>
+            <path d='M12 12 L5 19' className='lightning-line'>
+                <animate attributeName='opacity' values='0.3;1;0.3' dur='1.5s' begin='1.4s' repeatCount='indefinite' />
+            </path>
+        </g>
+        
+        {/* Center glow point - Yellow/Orange */}
+        <circle cx='12' cy='12' r='2' fill='#fbbf24' opacity='0.9'>
+            <animate attributeName='r' values='2;3;2' dur='2s' repeatCount='indefinite' />
+            <animate attributeName='opacity' values='0.6;1;0.6' dur='2s' repeatCount='indefinite' />
+        </circle>
+        <circle cx='12' cy='12' r='1' fill='#fff' />
     </svg>
 );
 
 const BotBuilderIcon = () => (
-    <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <rect x='7' y='4' width='10' height='7' rx='1' stroke='currentColor' strokeWidth='2' fill='none' />
-        <rect x='7' y='13' width='10' height='7' rx='1' stroke='currentColor' strokeWidth='2' fill='none' />
-        <circle cx='12' cy='7.5' r='1.5' fill='#ffd700' />
-        <circle cx='12' cy='16.5' r='1.5' fill='#ffd700' />
-        <path d='M12 11V13' stroke='currentColor' strokeWidth='2' strokeLinecap='round' />
-        <path d='M9 7.5H7M17 7.5H15M9 16.5H7M17 16.5H15' stroke='currentColor' strokeWidth='2' strokeLinecap='round' />
-        <circle cx='5' cy='7.5' r='1' fill='#ffd700' />
-        <circle cx='19' cy='7.5' r='1' fill='#ffd700' />
-        <circle cx='5' cy='16.5' r='1' fill='#ffd700' />
-        <circle cx='19' cy='16.5' r='1' fill='#ffd700' />
+    <svg width='28.8' height='28.8' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <defs>
+            {/* Gradient for robot - Red */}
+            <linearGradient id='robot-gradient' x1='0%' y1='0%' x2='0%' y2='100%'>
+                <stop offset='0%' stopColor='#ef4444' />
+                <stop offset='100%' stopColor='#dc2626' />
+            </linearGradient>
+            
+            {/* Gradient for rings - Orange to Yellow */}
+            <linearGradient id='ring-gradient' x1='0%' y1='0%' x2='100%' y2='100%'>
+                <stop offset='0%' stopColor='#fbbf24' />
+                <stop offset='50%' stopColor='#f59e0b' />
+                <stop offset='100%' stopColor='#ea580c' />
+            </linearGradient>
+        </defs>
+        
+        {/* Shoulders */}
+        <path 
+            d='M6 18 L6 15 Q6 14 7 14 L17 14 Q18 14 18 15 L18 18' 
+            stroke='url(#robot-gradient)' 
+            strokeWidth='2' 
+            fill='none' 
+            strokeLinecap='round'
+        />
+        
+        {/* Neck */}
+        <rect x='10.5' y='12' width='3' height='2' fill='url(#robot-gradient)' />
+        
+        {/* Robot Head - rectangular with rounded corners */}
+        <rect 
+            x='7' 
+            y='4' 
+            width='10' 
+            height='8' 
+            rx='1' 
+            fill='url(#robot-gradient)' 
+            stroke='#ef4444' 
+            strokeWidth='1.5'
+        />
+        
+        {/* Robot Eyes - glowing */}
+        <circle cx='9.5' cy='8' r='1.2' fill='#fbbf24'>
+            <animate attributeName='opacity' values='1;0.3;1' dur='3s' repeatCount='indefinite' />
+        </circle>
+        <circle cx='14.5' cy='8' r='1.2' fill='#fbbf24'>
+            <animate attributeName='opacity' values='1;0.3;1' dur='3s' repeatCount='indefinite' />
+        </circle>
+        
+        {/* Antenna 1 - Left */}
+        <line x1='9' y1='4' x2='9' y2='2' stroke='#ef4444' strokeWidth='1.5' strokeLinecap='round' />
+        <circle cx='9' cy='1.5' r='1' fill='#fbbf24'>
+            <animate attributeName='opacity' values='0.5;1;0.5' dur='1s' repeatCount='indefinite' />
+        </circle>
+        
+        {/* Antenna 2 - Right */}
+        <line x1='15' y1='4' x2='15' y2='2' stroke='#ef4444' strokeWidth='1.5' strokeLinecap='round' />
+        <circle cx='15' cy='1.5' r='1' fill='#fbbf24'>
+            <animate attributeName='opacity' values='0.5;1;0.5' dur='1s' begin='0.5s' repeatCount='indefinite' />
+        </circle>
+        
+        {/* Rotating Ring 1 - Tilted at 30 degrees */}
+        <ellipse 
+            cx='12' 
+            cy='8' 
+            rx='7' 
+            ry='2.5' 
+            fill='none' 
+            stroke='url(#ring-gradient)' 
+            strokeWidth='1.5' 
+            opacity='0.8'
+            transform='rotate(-30 12 8)'
+        >
+            <animateTransform
+                attributeName='transform'
+                type='rotate'
+                from='-30 12 8'
+                to='330 12 8'
+                dur='4s'
+                repeatCount='indefinite'
+            />
+        </ellipse>
+        
+        {/* Rotating Ring 2 - Tilted at 60 degrees, opposite direction */}
+        <ellipse 
+            cx='12' 
+            cy='8' 
+            rx='7' 
+            ry='2.5' 
+            fill='none' 
+            stroke='url(#ring-gradient)' 
+            strokeWidth='1.5' 
+            opacity='0.8'
+            transform='rotate(60 12 8)'
+        >
+            <animateTransform
+                attributeName='transform'
+                type='rotate'
+                from='60 12 8'
+                to='-300 12 8'
+                dur='3s'
+                repeatCount='indefinite'
+            />
+        </ellipse>
+    </svg>
+);
+
+const DCirclesIcon = () => (
+    <svg width='37.44' height='37.44' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <defs>
+            {/* Glowing gradient for rings */}
+            <radialGradient id='ring-glow-1'>
+                <stop offset='0%' stopColor='#a78bfa' stopOpacity='1' />
+                <stop offset='50%' stopColor='#8b5cf6' stopOpacity='0.8' />
+                <stop offset='100%' stopColor='#7c3aed' stopOpacity='0.6' />
+            </radialGradient>
+            <radialGradient id='ring-glow-2'>
+                <stop offset='0%' stopColor='#60a5fa' stopOpacity='1' />
+                <stop offset='50%' stopColor='#3b82f6' stopOpacity='0.8' />
+                <stop offset='100%' stopColor='#2563eb' stopOpacity='0.6' />
+            </radialGradient>
+            <filter id='glow'>
+                <feGaussianBlur stdDeviation='1' result='coloredBlur'/>
+                <feMerge>
+                    <feMergeNode in='coloredBlur'/>
+                    <feMergeNode in='SourceGraphic'/>
+                </feMerge>
+            </filter>
+        </defs>
+        
+        {/* Outer ring trail effect - Purple */}
+        <circle 
+            cx='8' 
+            cy='12' 
+            r='7' 
+            fill='none' 
+            stroke='url(#ring-glow-1)' 
+            strokeWidth='0.5'
+            opacity='0.3'
+        >
+            <animate attributeName='cx' values='8;16;8' dur='3s' repeatCount='indefinite' />
+        </circle>
+        
+        {/* Main Ring 1 - Purple with glow */}
+        <circle 
+            cx='8' 
+            cy='12' 
+            r='6' 
+            fill='none' 
+            stroke='url(#ring-glow-1)' 
+            strokeWidth='2.5'
+            opacity='0.9'
+            filter='url(#glow)'
+        >
+            <animate attributeName='cx' values='8;16;8' dur='3s' repeatCount='indefinite' />
+            <animate attributeName='opacity' values='0.9;0.5;0.9' dur='3s' repeatCount='indefinite' />
+        </circle>
+        
+        {/* Inner ring detail - Purple */}
+        <circle 
+            cx='8' 
+            cy='12' 
+            r='4.5' 
+            fill='none' 
+            stroke='#a78bfa' 
+            strokeWidth='1'
+            opacity='0.5'
+            strokeDasharray='2,2'
+        >
+            <animate attributeName='cx' values='8;16;8' dur='3s' repeatCount='indefinite' />
+            <animate attributeName='stroke-dashoffset' values='0;4;0' dur='1s' repeatCount='indefinite' />
+        </circle>
+        
+        {/* Outer ring trail effect - Blue */}
+        <circle 
+            cx='16' 
+            cy='12' 
+            r='7' 
+            fill='none' 
+            stroke='url(#ring-glow-2)' 
+            strokeWidth='0.5'
+            opacity='0.3'
+        >
+            <animate attributeName='cx' values='16;8;16' dur='3s' repeatCount='indefinite' />
+        </circle>
+        
+        {/* Main Ring 2 - Blue with glow */}
+        <circle 
+            cx='16' 
+            cy='12' 
+            r='6' 
+            fill='none' 
+            stroke='url(#ring-glow-2)' 
+            strokeWidth='2.5'
+            opacity='0.9'
+            filter='url(#glow)'
+        >
+            <animate attributeName='cx' values='16;8;16' dur='3s' repeatCount='indefinite' />
+            <animate attributeName='opacity' values='0.5;0.9;0.5' dur='3s' repeatCount='indefinite' />
+        </circle>
+        
+        {/* Inner ring detail - Blue */}
+        <circle 
+            cx='16' 
+            cy='12' 
+            r='4.5' 
+            fill='none' 
+            stroke='#60a5fa' 
+            strokeWidth='1'
+            opacity='0.5'
+            strokeDasharray='2,2'
+        >
+            <animate attributeName='cx' values='16;8;16' dur='3s' repeatCount='indefinite' />
+            <animate attributeName='stroke-dashoffset' values='0;-4;0' dur='1s' repeatCount='indefinite' />
+        </circle>
+        
+        {/* Center intersection glow burst */}
+        <circle cx='12' cy='12' r='3' fill='#fff' opacity='0' filter='url(#glow)'>
+            <animate attributeName='opacity' values='0;0.8;0' dur='3s' repeatCount='indefinite' />
+            <animate attributeName='r' values='1;4;1' dur='3s' repeatCount='indefinite' />
+        </circle>
+        
+        {/* Center core that pulses when rings cross */}
+        <circle cx='12' cy='12' r='2' fill='url(#ring-glow-1)' opacity='0'>
+            <animate attributeName='opacity' values='0;1;0' dur='3s' repeatCount='indefinite' />
+            <animate attributeName='r' values='1.5;2.5;1.5' dur='3s' repeatCount='indefinite' />
+        </circle>
+        
+        {/* Sparkle points at intersection */}
+        <circle cx='12' cy='9' r='0.8' fill='#fbbf24' opacity='0'>
+            <animate attributeName='opacity' values='0;1;0' dur='3s' repeatCount='indefinite' />
+        </circle>
+        <circle cx='12' cy='15' r='0.8' fill='#fbbf24' opacity='0'>
+            <animate attributeName='opacity' values='0;1;0' dur='3s' repeatCount='indefinite' />
+        </circle>
     </svg>
 );
 
@@ -1878,7 +2157,7 @@ const AppWrapper = observer(() => {
                         <div
                             label={
                                 <>
-                                    <span style={{ fontSize: '20px' }}>⭕</span>
+                                    <DCirclesIcon />
                                     <Localize i18n_default_text='DCircles' />
                                 </>
                             }
